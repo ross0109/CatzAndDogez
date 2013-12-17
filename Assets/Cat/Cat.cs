@@ -6,7 +6,7 @@ public class Cat : MonoBehaviour {
 	public float gravity = -1f;
 	public float speed = 5f;
 	public float jumpHeight = .3f;
-	public int count = 0;
+	//public int count = 0;
 	public float terminalVelocity = -5f;
 	private CharacterController controller;
 	
@@ -17,15 +17,15 @@ public class Cat : MonoBehaviour {
 	void Update () {
 		newPos.x = Input.GetAxis ("Horizontal1")*Time.deltaTime*speed;
 		if(Input.GetButtonDown("Jump1")){
-			if(controller.isGrounded || count == 1){
+			if(controller.isGrounded /*|| count == 1*/){
 				newPos.y = jumpHeight;
 				print ("Jumping");
 			}
-			count++;
+			//count++;
 		}
-		if(count > 1 && controller.isGrounded){
+		/*if(count > 1 && controller.isGrounded){
 			count = 0;
-		}
+		}*/
 		newPos.y += gravity*Time.deltaTime;
 		controller.Move (newPos);
 	}
