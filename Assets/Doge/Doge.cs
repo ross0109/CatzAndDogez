@@ -7,6 +7,8 @@ public class Doge : MonoBehaviour {
 	public float speed = 3f;
 	public float jumpHeight = .25f;
 	private CharacterController controller;
+	public float height;
+	public float checkHeight;
 	
 	void Start () {
 		controller = GetComponent<CharacterController>();
@@ -21,7 +23,14 @@ public class Doge : MonoBehaviour {
 			}
 		}
 
-		newPos.y += gravity*Time.deltaTime;
-		controller.Move (newPos);
+		newPos.y += gravity * Time.deltaTime;
+
+		controller.Move(newPos);
+
+		height = transform.localPosition.y;
+		if(newPos.y == height && !controller.isGrounded){
+			newPos.y = 0f;
+		}
+		checkHeight = height;
 	}	
 }
