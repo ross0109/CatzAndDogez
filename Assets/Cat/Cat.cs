@@ -3,12 +3,12 @@ using System.Collections;
 
 public class Cat : MonoBehaviour {
 	public Vector2 newPos = new Vector2 (0f, 0f);
-	public float gravity = -1f;
-	public float speed = 4f;
-	public float jumpHeight = .3f;
+	private float gravity = -1f;
+	private float speed = 15f;
+	private float jumpHeight = .4f;
 	//public int count = 0;
-	public float terminalVelocity = -5f;
-	private CharacterController controller;
+	private float terminalVelocity = -.5f;
+	public CharacterController controller;
 	
 	void Start () {
 		controller = GetComponent<CharacterController>();
@@ -26,7 +26,10 @@ public class Cat : MonoBehaviour {
 		/*if(count > 1 && controller.isGrounded){
 			count = 0;
 		}*/
-		newPos.y += gravity*Time.deltaTime;
+		if(newPos.y > terminalVelocity){
+			newPos.y += gravity*Time.deltaTime;
+		}
+
 		controller.Move (newPos);
 	}
 }
