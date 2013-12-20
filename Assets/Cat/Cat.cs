@@ -17,16 +17,11 @@ public class Cat : MonoBehaviour {
 	void Update () {
 		newPos.x = Input.GetAxis ("Horizontal1")*Time.deltaTime*speed;
 		if(Input.GetButtonDown("Jump1")){
-			if(controller.isGrounded){
+			if(count <= 1){
 				newPos.y = jumpHeight;
 				print ("Jumping");
 				++count;
 			}
-			/*if(Input.GetButtonDown("Jump1") && count == 1){
-				newPos.y = jumpHeight;
-				print ("Jumping");
-				++count;
-			}*/
 
 		}
 		if(controller.isGrounded){
