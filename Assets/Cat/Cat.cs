@@ -6,9 +6,10 @@ public class Cat : MonoBehaviour {
 	private float gravity = -1f;
 	private float speed = 15f;
 	private float jumpHeight = .4f;
-	private float maxGravity = -.5f;
+	private float maxGravity = -.4f;
 	public CharacterController controller;
-
+	public float height;
+	public float checkHeight;
 	private int count = 0;
 
 	void Start () {
@@ -17,19 +18,33 @@ public class Cat : MonoBehaviour {
 	void Update () {
 		newPos.x = Input.GetAxis ("Horizontal1")*Time.deltaTime*speed;
 		if(Input.GetButtonDown("Jump1")){
-			if(count <= 1){
-				newPos.y = jumpHeight;
-				print ("Jumping");
-				++count;
-			}
-
+			Jump ();
 		}
 		if(controller.isGrounded){
 			count = 0;
 		}
+		/*if(height == checkHeight){
+			newPos.y = 0;
+		}*/
 		if(newPos.y > maxGravity){
 			newPos.y += gravity * Time.deltaTime;
 		}
 		controller.Move(newPos);
+
 	}
+
+	void Jump(){
+		if(count <= 1){
+			newPos.y = jumpHeight;
+			print ("Jumping");
+			++count;
+		}
+	}
+	
+
+
+
+
+
+
 }

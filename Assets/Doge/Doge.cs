@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Doge : MonoBehaviour {
@@ -6,13 +6,12 @@ public class Doge : MonoBehaviour {
 	private float gravity = -1f;
 	private float speed = 15f;
 	private float jumpHeight = .4f;
-	private float maxGravity = -.5f;
+	private float maxGravity = -.4f;
 	public CharacterController controller;
 		
 	void Start () {
 		controller = GetComponent<CharacterController>();
 	}
-	
 	void Update () {
 		newPos.x = Input.GetAxis ("Horizontal2")*Time.deltaTime*speed;
 		if(Input.GetButtonDown("Jump2")){
@@ -25,8 +24,5 @@ public class Doge : MonoBehaviour {
 			newPos.y += gravity * Time.deltaTime;
 		}
 		controller.Move(newPos);
-
-
-		
 	}	
 }
