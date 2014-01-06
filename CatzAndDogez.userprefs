@@ -1,6 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\AI\EnemyControl.cs">
+    <Files>
+      <File FileName="Assets\Doge\Doge.cs" Line="37" Column="4" />
+      <File FileName="Assets\Cat\Cat.cs" Line="13" Column="24" />
+      <File FileName="Assets\AI\EnemyControl.cs" Line="16" Column="20" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

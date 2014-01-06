@@ -8,8 +8,8 @@ public class Cat : MonoBehaviour {
 	private float jumpHeight = .4f;
 	private float maxGravity = -.4f;
 	public CharacterController controller;
-	public float height;
-	public float checkHeight;
+	private float height = 0f;
+	private float checkHeight;
 	private int count = 0;
 
 	void Start () {
@@ -23,13 +23,19 @@ public class Cat : MonoBehaviour {
 		if(controller.isGrounded){
 			count = 0;
 		}
-		/*if(height == checkHeight){
-			newPos.y = 0;
-		}*/
+
 		if(newPos.y > maxGravity){
 			newPos.y += gravity * Time.deltaTime;
 		}
 		controller.Move(newPos);
+		if(!controller.isGrounded){
+			height = transform.localPosition.y;
+			if(height == checkHeight){
+				newPos.y = 0f;
+				controller.Move(newPos);
+			}
+			checkHeight = height;
+		}
 
 	}
 
