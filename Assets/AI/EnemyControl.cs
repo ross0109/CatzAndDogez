@@ -5,16 +5,43 @@ public class EnemyControl : MonoBehaviour {
 	public Vector2 newPos = new Vector2(0f, 0f);
 	public Vector2 startPos = new Vector2(0f, 0f);
 	public int count = 0;
-	private float speed = 4f;
-	private float distanceTravelled = 0f;
-	private CharacterController controller;
+	private float speed = .01f;
+	private float displacement = .1f;
+	private bool goingRight = true;
+	public CharacterController controller;
 
-	void Start () {
-
+	public float getDisplacement(){
+		return displacement;
+	}
+	public void setDisplacement(float d){
+		displacement = d;
+	}
+	public float getSpeed(){
+		return speed;
+	}
+	public void setSpeed(float newS){
+		speed = newS;
+	}
+	public void Start () {
+		controller = GetComponent<CharacterController>();
 	}
 	void Update () {
-		newPos.x += speed;
 
+	}
+	public void movement(){
+		if(goingRight){
+			newPos.x += speed;
+		}
+		else if(!goingRight){
+			newPos.x -= speed;
+		}
+		
+		if(Mathf.Abs(newPos.x) >= displacement && goingRight){
+			goingRight = false;
+		}
+		else if(Mathf.Abs(newPos.x) >= displacement && !goingRight){
+			goingRight = true;
+		}
 		controller.Move(newPos);
 	}
 }
