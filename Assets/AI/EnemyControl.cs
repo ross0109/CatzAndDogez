@@ -4,9 +4,12 @@ using System.Collections;
 public class EnemyControl : MonoBehaviour {
 	public Vector2 newPos = new Vector2(0f, 0f);
 	public Vector2 startPos = new Vector2(0f, 0f);
-	public int count = 0;
+	private float gravity = -1f;
+	private float maxGravity = -.4f;
 	private float speed = .01f;
 	private float displacement = .1f;
+	private float distance = 0f;
+	private float checkDistance;
 	private bool goingRight = true;
 	public CharacterController controller;
 
@@ -35,13 +38,22 @@ public class EnemyControl : MonoBehaviour {
 		else if(!goingRight){
 			newPos.x -= speed;
 		}
-		
-		if(Mathf.Abs(newPos.x) >= displacement && goingRight){
+		if(Mathf.Abs(newPos.x) > displacement && goingRight){
 			goingRight = false;
+			distance = 0f;
 		}
 		else if(Mathf.Abs(newPos.x) >= displacement && !goingRight){
 			goingRight = true;
+			distance = 0f;
 		}
+		if(newPos.y > maxGravity){
+			newPos.y += gravity * Time.deltaTime;
+		}
+		checkAnimal();
 		controller.Move(newPos);
 	}
+	public void checkAnimal(){
+
+	}
+
 }
