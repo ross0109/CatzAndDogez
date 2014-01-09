@@ -12,6 +12,10 @@ public class Cat : MonoBehaviour {
 	private float checkHeight;
 	private int count = 0;
 
+	public Vector2 getPosition(){
+		return newPos;
+	}
+
 	void Start () {
 		controller = GetComponent<CharacterController>();
 		/*GameManager.gameStarter += gameStart;
