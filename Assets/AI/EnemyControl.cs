@@ -26,8 +26,8 @@ public class EnemyControl : MonoBehaviour {
 	}
 	public void Start () {
 		controller = GetComponent<CharacterController>();
-		GameManager.gameStarter += gameStart;
-		GameManager.gameEnder += gameEnd;
+		/*GameManager.gameStarter += gameStarter;
+		GameManager.gameEnder += gameEnder;*/
 	}
 	void Update () {
 

@@ -14,8 +14,8 @@ public class Cat : MonoBehaviour {
 
 	void Start () {
 		controller = GetComponent<CharacterController>();
-		GameManager.gameStarter += gameStart;
-		GameManager.gameEnder += gameEnd;
+		/*GameManager.gameStarter += gameStart;
+		GameManager.gameEnder += gameEnd;*/
 	}	
 	void Update () {
 		newPos.x = Input.GetAxis ("Horizontal1")*Time.deltaTime*speed;
