@@ -13,13 +13,15 @@ public class Doge : MonoBehaviour {
 		
 	void Start () {
 		controller = GetComponent<CharacterController>();
+		GameManager.gameStarter += gameStart;
+		GameManager.gameEnder += gameEnd;
 	}
 	void Update () {
 		newPos.x = Input.GetAxis ("Horizontal2")*Time.deltaTime*speed;
 		if(Input.GetButtonDown("Jump2")){
 			if(controller.isGrounded){
 				newPos.y = jumpHeight;
-				print ("Jumping");
+				//print ("Jumping");
 			}
 
 		}
@@ -36,4 +38,10 @@ public class Doge : MonoBehaviour {
 			checkHeight = height;
 		}
 	}	
+	public void gameStart() {
+		enabled = true;
+	}
+	public void gameEnd() {
+		enabled = false;
+	}
 }

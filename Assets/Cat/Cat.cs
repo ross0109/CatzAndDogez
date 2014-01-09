@@ -14,6 +14,8 @@ public class Cat : MonoBehaviour {
 
 	void Start () {
 		controller = GetComponent<CharacterController>();
+		GameManager.gameStarter += gameStart;
+		GameManager.gameEnder += gameEnd;
 	}	
 	void Update () {
 		newPos.x = Input.GetAxis ("Horizontal1")*Time.deltaTime*speed;
@@ -42,15 +44,14 @@ public class Cat : MonoBehaviour {
 	void Jump(){
 		if(count <= 1){
 			newPos.y = jumpHeight;
-			print ("Jumping");
+			//print ("Jumping");
 			++count;
 		}
 	}
-	
-
-
-
-
-
-
+	public void gameStart() {
+		enabled = true;
+	}
+	public void gameEnd() {
+		enabled = false;
+	}
 }

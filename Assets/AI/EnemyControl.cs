@@ -8,7 +8,6 @@ public class EnemyControl : MonoBehaviour {
 	private float maxGravity = -.4f;
 	private float speed = .01f;
 	private float displacement = .1f;
-	private float distance = 0f;
 	private float checkDistance;
 	private bool goingRight = true;
 	public CharacterController controller;
@@ -27,6 +26,8 @@ public class EnemyControl : MonoBehaviour {
 	}
 	public void Start () {
 		controller = GetComponent<CharacterController>();
+		GameManager.gameStarter += gameStart;
+		GameManager.gameEnder += gameEnd;
 	}
 	void Update () {
 
@@ -38,13 +39,11 @@ public class EnemyControl : MonoBehaviour {
 		else if(!goingRight){
 			newPos.x -= speed;
 		}
-		if(Mathf.Abs(newPos.x) > displacement && goingRight){
+		if(Mathf.Abs(newPos.x) >= displacement && goingRight){
 			goingRight = false;
-			distance = 0f;
 		}
 		else if(Mathf.Abs(newPos.x) >= displacement && !goingRight){
 			goingRight = true;
-			distance = 0f;
 		}
 		if(newPos.y > maxGravity){
 			newPos.y += gravity * Time.deltaTime;
