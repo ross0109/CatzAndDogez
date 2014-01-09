@@ -8,7 +8,7 @@ public class StartGame : MonoBehaviour {
 	}
 
 	void Update () {
-		if(Input.GetButtonDown("Return")){
+		if(Input.GetButtonDown("Fire1")){
 			Application.LoadLevel(1);
 		}
 	}
