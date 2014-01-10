@@ -8,8 +8,9 @@ public class EnemyControl : MonoBehaviour {
 	private float maxGravity = -.4f;
 	private float speed = .01f;
 	private float displacement = .1f;
-	private float checkDistance;
+	private Vector2 pastPos;
 	private bool goingRight = true;
+
 	public CharacterController controller;
 
 	public float getDisplacement(){
@@ -33,6 +34,9 @@ public class EnemyControl : MonoBehaviour {
 
 	}
 	public void movement(){
+		if(pastPos != transform.localPosition){
+			pastPos = transform.localPosition;
+		}
 		if(goingRight){
 			newPos.x += speed;
 		}
@@ -48,6 +52,7 @@ public class EnemyControl : MonoBehaviour {
 		if(newPos.y > maxGravity){
 			newPos.y += gravity * Time.deltaTime;
 		}
+		//scenario if the pastPos equals the localPos, then the enemy is not moving. only preform the movement statements if it is moving
 		checkAnimal();
 		controller.Move(newPos);
 	}
