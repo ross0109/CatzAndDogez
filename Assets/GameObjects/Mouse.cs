@@ -2,14 +2,17 @@
 using System.Collections;
 
 public class Mouse : MonoBehaviour {
-
-	// Use this for initialization
+	
 	void Start () {
 		
 	}
-	
-	// Update is called once per frame
+	void onTriggerEnter(){
+		print ("Collection");
+		if(this.gameObject != null){
+			GameObject.Destroy(this.gameObject);
+		}
+	}
 	void Update () {
-	
+		onTriggerEnter();
 	}
 }

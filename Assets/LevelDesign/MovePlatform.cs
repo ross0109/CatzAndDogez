@@ -48,4 +48,13 @@ public class MovePlatform : MonoBehaviour {
 		}
 		controller.Move(newPos);
 	}
+
+
+
+
+
+
+
+
+
 }

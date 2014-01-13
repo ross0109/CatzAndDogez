@@ -21,7 +21,6 @@ public class Doge : MonoBehaviour {
 		if(Input.GetButtonDown("Jump2")){
 			if(controller.isGrounded){
 				newPos.y = jumpHeight;
-				//print ("Jumping");
 			}
 
 		}
@@ -36,6 +35,10 @@ public class Doge : MonoBehaviour {
 				controller.Move(newPos);
 			}
 			checkHeight = height;
+		}
+		if((transform.localPosition.y >= -10 && transform.localPosition.y <= -8) &&(transform.localPosition.x <= 265 && transform.localPosition.x >= 245)){
+			print ("YOU WIN");
+			enabled = false;
 		}
 	}	
 	public void gameStart() {

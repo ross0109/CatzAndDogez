@@ -15,7 +15,7 @@ public class Cat : MonoBehaviour {
 	public Vector2 getPosition(){
 		return newPos;
 	}
-
+	
 	void Start () {
 		controller = GetComponent<CharacterController>();
 		/*GameManager.gameStarter += gameStart;
@@ -42,6 +42,15 @@ public class Cat : MonoBehaviour {
 			}
 			checkHeight = height;
 		}
+
+		if((transform.localPosition.y >= -10 && transform.localPosition.y <= -8) &&(transform.localPosition.x <= 265 && transform.localPosition.x >= 245)){
+			print ("YOU WIN");
+			enabled = false;
+		}
+
+	}
+
+	public void CatCollision(){
 
 	}
 
