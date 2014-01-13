@@ -11,6 +11,8 @@ public class MovePlatform : MonoBehaviour {
 	private Vector2 pastPos;
 	private bool goingRight = true;
 
+
+
 	public float getDisplacement(){
 		return displacement;
 	}
@@ -32,9 +34,6 @@ public class MovePlatform : MonoBehaviour {
 	
 	}
 	public void movement(){
-		if(pastPos != transform.localPosition){
-			pastPos = transform.localPosition;
-		}
 		if(goingRight){
 			newPos.x += speed;
 		}
@@ -47,6 +46,6 @@ public class MovePlatform : MonoBehaviour {
 		else if(Mathf.Abs(newPos.x) >= displacement && !goingRight){
 			goingRight = true;
 		}
-	controller.Move(newPos);
+		controller.Move(newPos);
 	}
 }

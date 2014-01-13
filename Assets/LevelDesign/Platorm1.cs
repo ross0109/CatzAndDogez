@@ -5,8 +5,8 @@ public class Platorm1 : MovePlatform {
 
 	void Start () {
 		controller = GetComponent<CharacterController>();
-		setDisplacement(.05f);
-		setSpeed(.01f);
+		setDisplacement(.3f);
+		setSpeed(.005f);
 	}
 
 	void Update () {
