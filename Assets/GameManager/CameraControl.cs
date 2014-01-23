@@ -8,7 +8,7 @@ public class CameraControl : MonoBehaviour {
 	public Vector3 center;
 
 	void Update () {
-		center = ((Doge.localPosition.x - Cat.localPosition.x)/2.0f) + Cat.localPosition.x;
-		transform.LookAt(center);
+		//center = ((Doge.localPosition.x - Cat.localPosition.x)/2.0f) + Cat.localPosition.x;
+		//transform.LookAt(center);
 	}
 }
