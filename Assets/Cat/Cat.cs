@@ -57,7 +57,6 @@ public class Cat : MonoBehaviour {
 	void Jump(){
 		if(count <= 1){
 			newPos.y = jumpHeight;
-			//print ("Jumping");
 			++count;
 		}
 	}
