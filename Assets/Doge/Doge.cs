@@ -41,6 +41,11 @@ public class Doge : MonoBehaviour {
 			print ("YOU WIN");
 			enabled = false;
 		}
+		if(transform.localPosition.y <= -35){
+			print ("YOU ARE CAPTURED AHHHHH");
+			enabled = false;
+			//Cat.disableCat();
+		}
 	}	
 	void Jump(){
 		if(count < 1){

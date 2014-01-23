@@ -47,6 +47,11 @@ public class Cat : MonoBehaviour {
 			print ("YOU WIN");
 			enabled = false;
 		}
+		if(transform.localPosition.y <= -35){
+			print ("YOU ARE CAPTURED AHHHHH");
+			enabled = false;
+			//Doge.disableCat();
+		}
 
 	}
 
@@ -64,6 +69,9 @@ public class Cat : MonoBehaviour {
 		enabled = true;
 	}
 	public void gameEnd() {
+		enabled = false;
+	}
+	public void disableCat(){
 		enabled = false;
 	}
 }
