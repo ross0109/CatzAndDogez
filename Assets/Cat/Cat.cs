@@ -10,16 +10,18 @@ public class Cat : MonoBehaviour {
 	public CharacterController controller;
 	private float height = 0f;
 	private float checkHeight;
-	private int count = 0;
-	public SpriteRenderer controlSprite;
+	public int count = 0;
+
+	//public SpriteRenderer controlSprite;
 
 	public Vector2 getPosition(){
 		return newPos;
 	}
 	
 	void Start () {
-		//controller = GetComponent<CharacterController>();
-		controlSprite = GetComponent<SpriteRenderer>();
+		controller = GetComponent<CharacterController>();
+
+		//controlSprite = GetComponent<SpriteRenderer>();
 		/*GameManager.gameStarter += gameStart;
 		GameManager.gameEnder += gameEnd;*/
 	}	
@@ -41,8 +43,8 @@ public class Cat : MonoBehaviour {
 			if(height == checkHeight){
 				newPos.y = 0f;
 				controller.Move(newPos);
+				checkHeight = height;
 			}
-			checkHeight = height;
 		}
 
 		if((transform.localPosition.y >= -10 && transform.localPosition.y <= -8) &&(transform.localPosition.x <= 265 && transform.localPosition.x >= 245)){
@@ -64,7 +66,7 @@ public class Cat : MonoBehaviour {
 	void Jump(){
 		if(count <= 1){
 			newPos.y = jumpHeight;
-			++count;
+			count += 1;
 		}
 	}
 	public void gameStart() {
