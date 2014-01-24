@@ -11,13 +11,15 @@ public class Cat : MonoBehaviour {
 	private float height = 0f;
 	private float checkHeight;
 	private int count = 0;
+	public SpriteRenderer controlSprite;
 
 	public Vector2 getPosition(){
 		return newPos;
 	}
 	
 	void Start () {
-		controller = GetComponent<CharacterController>();
+		//controller = GetComponent<CharacterController>();
+		controlSprite = GetComponent<SpriteRenderer>();
 		/*GameManager.gameStarter += gameStart;
 		GameManager.gameEnder += gameEnd;*/
 	}	
